@@ -29,7 +29,7 @@ const brandLogos = [
 
 export default function CompanyBrands() {
   return (
-    <div className="mt-28 relative px-4">
+    <div className="mt-28 relative ">
       <h3 className="text-3xl font-bold text-center text-blue-700 dark:text-blue-300 mb-10">
         We Repair All Major Brands
       </h3>

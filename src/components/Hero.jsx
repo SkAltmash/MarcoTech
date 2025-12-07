@@ -52,7 +52,7 @@ const Hero = () => {
         className="flex flex-wrap justify-center gap-3 mt-6 font-semibold
         text-blue-900 dark:text-blue-300"
       >
-        {["Mobile Repair", "Laptop Repair", "MacBook Service", "Data Recovery"].map((item, i) => (
+        {["Laptop Repair", "MacBook Service", "Data Recovery" , "Desktop Repair" , "Printer Service"].map((item, i) => (
           <span key={i} className="bg-blue-100 dark:bg-blue-900/40 px-4 py-1 rounded-full text-sm shadow">
             <CheckCircle className="inline w-4 mr-1 text-blue-600 dark:text-blue-400" />
             {item}

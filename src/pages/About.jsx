@@ -1,18 +1,20 @@
 // src/pages/About.jsx
 import {
-  Cpu,
   ShieldCheck,
+  Star,
   Wrench,
-  MapPin,
+  Cpu,
   GraduationCap,
   BriefcaseBusiness,
   CheckCircle2,
+  MapPin,
   MessageCircle,
   PhoneCall,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-
+import CountUp from "@/components/CountUp";
+import TiltedCard from '@/components/TiltedCard'
 const whatsappNumber = "917447709973";
 
 const About = () => {
@@ -20,26 +22,19 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const stats = [
+    { label: "Google Rating", value: "4.9⭐", desc: "100+ Verified Reviews" },
+    { label: "Years Experience", value: "3+ Years", desc: "Chip-Level Expertise" },
+    { label: "Devices Repaired", value: "200+", desc: "Trusted Customers" },
+  ];
+
   const skills = [
     "Troubleshooting & Diagnostics",
     "Laptop & Desktop Hardware Repair",
+    "Chip-Level Board Repair",
     "Printer & Peripheral Support",
     "Hardware Installation & Upgrades",
-    "Soldering & Component-Level Repair",
-    "Customer Service & Communication",
-  ];
-
-  const certifications = [
-    {
-      title: "KLiC Certificate in IT Hardware Support (85%)",
-      org: "Maharashtra Knowledge Corporation Limited (MKCL)",
-      details: "120+ hours of practical hardware support training.",
-    },
-    {
-      title: "Advanced Diploma in Laptop & MacBook Chip-Level Training",
-      org: "ECS Institute of Digital Technologies, Hyderabad",
-      details: "Focused chip-level diagnostics and motherboard repair.",
-    },
+    "Customer Communication",
   ];
 
   const education = [
@@ -51,12 +46,7 @@ const About = () => {
     {
       title: "BCA (Bachelor of Computer Applications)",
       org: "Wahed Khan College, Amravati",
-      period: "Aug 2022 – Ongoing",
-    },
-    {
-      title: "12th",
-      org: "Imam Wali Ullah Public School & Jr College, Akola",
-      period: "Aug 2020 – Aug 2022",
+      period: "2022 – Ongoing",
     },
   ];
 
@@ -66,191 +56,198 @@ const About = () => {
       company: "Computer Hardware Service Shop",
       location: "Hyderabad & Wardha",
       period: "Jan 2023 – Present",
-      desc: "Hands-on experience handling laptop, desktop and printer issues for local customers and small businesses.",
+      desc: "Daily service experience repairing laptops, desktops & printers for real customers.",
     },
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-900 min-h-screen pt-28 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 
+      dark:from-[#0b1226] dark:via-[#0c142b] dark:to-[#090f20] 
+      text-gray-900 dark:text-gray-200 min-h-screen pt-28 px-6 overflow-hidden">
 
-      {/* Soft Background Glow */}
+      {/* 🌈 Light Glow BG */}
       <motion.div
-        className="absolute -top-32 right-0 w-[60vw] max-w-[360px] h-[60vw] max-h-[360px] bg-blue-300 rounded-full blur-[150px] opacity-40"
+        className="absolute -top-52 right-0 w-[60vw] max-w-[430px] h-[60vw] 
+        bg-blue-500/30 dark:bg-blue-800/40 rounded-full blur-[180px] opacity-40"
         animate={{ scale: [1, 1.15, 1] }}
-        transition={{ duration: 7, repeat: Infinity }}
+        transition={{ duration: 8, repeat: Infinity }}
       />
 
-      {/* HERO */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      {/* ============================= */}
+      {/* 🎯 Section 1: About Marco Tech */}
+      {/* ============================= */}
+
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-extrabold text-blue-800"
+          className="text-4xl md:text-5xl font-extrabold text-blue-800 dark:text-blue-300"
         >
-          About Marco Tech
+          Marco Tech — Trusted Hardware Repair Service
         </motion.h1>
-        <p className="mt-4 text-gray-700 text-lg">
-          Marco Tech is a dedicated IT hardware service provider focused on
-          reliable laptop, desktop and printer repair with chip-level expertise
-          in Hyderabad.
+        <p className="mt-4 text-gray-700 dark:text-gray-300 text-lg">
+          Hyderabad’s reliable repair partner for laptops, desktops & printers with genuine parts & transparent pricing.
         </p>
       </div>
 
-      {/* TWO COLUMN: COMPANY + TECHNICIAN */}
-      <div className="relative z-10 max-w-6xl mx-auto mt-14 grid lg:grid-cols-2 gap-10">
-        {/* Company Overview */}
-        <motion.div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-3">
-            <ShieldCheck className="w-7 h-7 text-blue-700" />
-            <h2 className="text-xl font-bold text-gray-900">Who We Are</h2>
-          </div>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            Marco Tech delivers structured, process-driven repair services for
-            individuals and small businesses. From basic hardware issues to
-            complex chip-level motherboard faults, the focus is on accurate
-            diagnosis, genuine guidance and clear communication with every
-            customer.
-          </p>
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed mt-3">
-            The objective is simple: provide dependable technical support that
-            keeps systems stable and productive, without unnecessary upselling
-            or hidden charges.
-          </p>
-        </motion.div>
-
-        {/* Technician Profile (Text Only) */}
-        <motion.div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-3">
-            <Cpu className="w-7 h-7 text-blue-700" />
-            <h2 className="text-xl font-bold text-gray-900">About the Technician</h2>
-          </div>
-          <p className="text-gray-800 font-semibold">
-            Sheikh Ibrahim — Laptop & Desktop Hardware Technician
-          </p>
-          <p className="text-gray-700 text-sm md:text-base mt-2 leading-relaxed">
-            Ibrahim is a trained computer hardware technician with a strong
-            foundation in IT hardware support and chip-level repair. His work
-            combines structured training with real-world shop experience across
-            Hyderabad and Wardha.
-          </p>
-          <p className="text-gray-700 text-sm md:text-base mt-2 leading-relaxed">
-            With a focus on practical problem-solving, Ibrahim specialises in
-            diagnosing faults, repairing motherboards, handling component-level
-            issues and ensuring that each device is returned in a stable,
-            service-ready condition.
-          </p>
-        </motion.div>
+      {/* 🔒 Trust Stats */}
+      <div className="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto mt-14 text-center">
+        {stats.map((st, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.05 }}
+            className="bg-white/70 dark:bg-white/10 backdrop-blur-xl py-6 
+            rounded-2xl shadow border dark:border-blue-900/40"
+          >
+            <p className="text-3xl font-extrabold text-blue-700 dark:text-blue-300">
+             <CountUp
+                from={0}
+                to={st.value}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />
+            </p>
+            <p className="font-semibold mt-1">{st.label}</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{st.desc}</p>
+          </motion.div>
+        ))}
       </div>
 
-      {/* SKILLS SECTION */}
-      <div className="relative z-10 max-w-6xl mx-auto mt-20 grid lg:grid-cols-2 gap-10">
-        <motion.div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-3">
-            <Wrench className="w-7 h-7 text-blue-700" />
-            <h2 className="text-xl font-bold text-gray-900">Technical Skills</h2>
+      {/* ============================= */}
+      {/* 👨‍🔧 Section 2: About Technician */}
+      {/* ============================= */}
+
+      <div className="relative z-10 max-w-6xl mx-auto mt-28">
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-3xl font-bold text-blue-700 dark:text-blue-300 text-center"
+        >
+          Meet Your Technician — Sheikh Ibrahim
+        </motion.h2>
+
+        {/* Profile Card */}
+        <div className="mt-12 bg-white/75 dark:bg-white/5 backdrop-blur-xl 
+          rounded-2xl shadow-lg border dark:border-blue-900/40 p-8 md:p-10 max-w-4xl mx-auto">
+
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            {/* Placeholder Image */}
+<TiltedCard
+  imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+  altText="Kendrick Lamar - GNX Album Cover"
+  captionText="Kendrick Lamar - GNX"
+  containerHeight="300px"
+  containerWidth="300px"
+  imageHeight="300px"
+  imageWidth="300px"
+  rotateAmplitude={12}
+  scaleOnHover={1.2}
+  showMobileWarning={true}
+  showTooltip={true}
+  displayOverlayContent={true}
+  overlayContent={
+    <p className="tilted-card-demo-text">
+    </p>
+  }
+/>
+  
+
+            <div className="text-center md:text-left">
+              <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                Chip-Level Repair Specialist
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 mt-2 leading-relaxed">
+                Passionate about fixing complex hardware issues with accuracy & transparency.
+                Strong grounding in diagnostics, motherboard repairs & customer support.
+              </p>
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 gap-3 mt-3">
+        </div>
+      </div>
+
+      {/* ⚙ Skills */}
+      <div className="max-w-5xl mx-auto mt-16 grid sm:grid-cols-2 gap-6">
+        <div className="bg-white/70 dark:bg-white/10 backdrop-blur-xl rounded-2xl shadow p-6 border dark:border-blue-900/40">
+          <div className="flex items-center gap-3 mb-3">
+            <Wrench className="text-blue-700 dark:text-blue-300" />
+            <h3 className="font-bold text-lg">Technical Skills</h3>
+          </div>
+          <div className="space-y-2">
             {skills.map((skill, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-sm md:text-base text-gray-700"
-              >
-                <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                <span>{skill}</span>
-              </div>
+              <p key={i} className="flex items-center gap-2 text-sm">
+                <CheckCircle2 className="w-4 text-blue-600 dark:text-blue-400" />
+                {skill}
+              </p>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Experience */}
-        <motion.div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border p-6 md:p-8">
+        <div className="bg-white/70 dark:bg-white/10 backdrop-blur-xl rounded-2xl shadow p-6 border dark:border-blue-900/40">
           <div className="flex items-center gap-3 mb-3">
-            <BriefcaseBusiness className="w-7 h-7 text-blue-700" />
-            <h2 className="text-xl font-bold text-gray-900">Professional Experience</h2>
+            <BriefcaseBusiness className="text-blue-700 dark:text-blue-300" />
+            <h3 className="font-bold text-lg">Experience</h3>
           </div>
-          <div className="space-y-4 mt-2">
-            {experience.map((exp, i) => (
-              <div key={i} className="text-left">
-                <p className="font-semibold text-gray-900">{exp.role}</p>
-                <p className="text-sm text-gray-600">
-                  {exp.company} · {exp.location}
-                </p>
-                <p className="text-xs text-gray-500 mt-1">{exp.period}</p>
-                <p className="text-sm text-gray-700 mt-2 leading-relaxed">
-                  {exp.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+          {experience.map((exp, i) => (
+            <div key={i} className="text-sm leading-relaxed">
+              <p className="font-semibold text-gray-900 dark:text-gray-200">{exp.role}</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                {exp.company} · {exp.location}
+              </p>
+              <p className="text-xs text-gray-500 mt-1">{exp.period}</p>
+              <p className="text-gray-700 dark:text-gray-300 mt-2">{exp.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* EDUCATION & CERTIFICATIONS */}
-      <div className="relative z-10 max-w-6xl mx-auto mt-20 grid lg:grid-cols-2 gap-10">
-        {/* Education */}
-        <motion.div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-3">
-            <GraduationCap className="w-7 h-7 text-blue-700" />
-            <h2 className="text-xl font-bold text-gray-900">Education</h2>
+      {/* 🎓 Education */}
+      <div className="max-w-4xl mx-auto mt-16 bg-white/70 dark:bg-white/10 
+        backdrop-blur-xl rounded-2xl shadow p-6 border dark:border-blue-900/40">
+        <div className="flex items-center gap-3 mb-3">
+          <GraduationCap className="text-blue-700 dark:text-blue-300" />
+          <h3 className="font-bold text-lg">Education</h3>
+        </div>
+        {education.map((edu, i) => (
+          <div key={i} className="mb-4 text-sm">
+            <p className="font-semibold">{edu.title}</p>
+            <p className="text-gray-600 dark:text-gray-400">{edu.org}</p>
+            <p className="text-xs text-gray-500">{edu.period}</p>
           </div>
-          <div className="space-y-4 mt-2">
-            {education.map((edu, i) => (
-              <div key={i} className="text-left">
-                <p className="font-semibold text-gray-900">{edu.title}</p>
-                <p className="text-sm text-gray-600">{edu.org}</p>
-                <p className="text-xs text-gray-500 mt-1">{edu.period}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Certifications */}
-        <motion.div className="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border p-6 md:p-8">
-          <div className="flex items-center gap-3 mb-3">
-            <ShieldCheck className="w-7 h-7 text-blue-700" />
-            <h2 className="text-xl font-bold text-gray-900">Certifications</h2>
-          </div>
-          <div className="space-y-4 mt-2">
-            {certifications.map((cert, i) => (
-              <div key={i} className="text-left">
-                <p className="font-semibold text-gray-900">{cert.title}</p>
-                <p className="text-sm text-gray-600">{cert.org}</p>
-                <p className="text-sm text-gray-700 mt-1">{cert.details}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        ))}
       </div>
 
-      {/* LOCATION & CTA */}
-      <div className="relative z-10 max-w-4xl mx-auto mt-20 text-center">
-        <p className="flex justify-center items-center gap-2 text-gray-700 text-lg font-medium">
-          <MapPin className="w-6 h-6 text-blue-700" />
-          Service available in Hyderabad · India
+      {/* 📍 Location + CTA */}
+      <div className="text-center mt-20">
+        <p className="flex justify-center items-center gap-2 text-lg font-medium">
+          <MapPin className="w-6 text-blue-700 dark:text-blue-300" />
+          Service available in Hyderabad, India
         </p>
 
         <div className="mt-8 flex justify-center gap-4 flex-wrap">
           <a
             href={`https://wa.me/${whatsappNumber}`}
-            className="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-lg hover:scale-105 transition"
+            className="bg-green-600 dark:bg-green-500 text-white px-10 py-3
+            rounded-xl shadow-lg text-lg font-semibold hover:scale-105 transition"
           >
-            <MessageCircle className="inline-block w-5 h-5 mb-1 mr-1" />
-            Chat on WhatsApp
+            <MessageCircle className="inline-block w-5 mr-1" /> WhatsApp
           </a>
           <a
             href={`tel:+${whatsappNumber}`}
-            className="bg-white text-blue-700 border border-blue-500 px-8 py-3 rounded-xl text-lg font-semibold shadow hover:bg-blue-50 transition"
+            className="bg-blue-700 dark:bg-blue-500 text-white px-10 py-3
+            rounded-xl shadow-lg text-lg font-semibold hover:scale-105 transition"
           >
-            <PhoneCall className="inline-block w-5 h-5 mb-1 mr-1" />
-            Call Marco Tech
+            <PhoneCall className="inline-block w-5 mr-1" /> Call Now
           </a>
         </div>
       </div>
 
-      {/* FOOTER */}
-      <footer className="relative z-10 text-center text-gray-500 py-12 mt-20 border-t">
+      <footer className="text-center text-gray-600 dark:text-gray-500 py-12 mt-20 border-t dark:border-blue-900/40">
         © {new Date().getFullYear()} Marco Tech. All Rights Reserved.
       </footer>
+
     </section>
   );
 };
