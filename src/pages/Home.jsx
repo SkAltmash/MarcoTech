@@ -1,127 +1,72 @@
+import Hero from "../components/Hero";
 import {
-  MessageCircle,
-  PhoneCall,
   Cpu,
   Clock,
   IndianRupee,
   Star,
   CheckCircle,
+  Wrench,
+  PhoneCall
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import CompanyBrands from "../components/CompanyBrands";
 
 const Home = () => {
-  const whatsappNumber = "917447709973";
+
+  const reviews = [
+    { name: "Rohit Kumar", review: "Laptop fixed in just 2 hours!", rating: 5 },
+    { name: "Ayesha", review: "Highly trusted repair center!", rating: 5 },
+    { name: "Sanjay", review: "Chip-level repair done perfectly!", rating: 4 },
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const reviews = [
-    { name: "Rohit Kumar", review: "Laptop fixed in just 2 hours! Highly impressed.", rating: 5 },
-    { name: "Ayesha", review: "Best repair service in Hyderabad!", rating: 5 },
-    { name: "Sanjay", review: "Chip-level repair done perfectly!", rating: 4 },
-  ];
-
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-900 pt-24 overflow-hidden">
+    <section className="mt-12 relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0a1124] dark:via-[#0e1630] dark:to-[#0b1226] text-gray-900 dark:text-gray-200 overflow-hidden">
 
-      {/* ⭐ Floating Particles */}
-      {Array.from({ length: 16 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-blue-300 rounded-full"
-          initial={{ opacity: 0.4, y: 0 }}
-          animate={{ opacity: [0.4, 1, 0.4], y: [-20, 20, -20] }}
-          transition={{ duration: 5, repeat: Infinity, delay: i * 0.3 }}
-          style={{
-            top: Math.random() * 100 + "%",
-            left: Math.random() * 100 + "%",
-          }}
-        />
-      ))}
-
-      {/* 🌊 Wavy Gradient */}
+      {/* Background Blur */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-[400px] bg-gradient-to-r 
-        from-blue-200 to-blue-400 opacity-40 blur-[120px]"
+        className="absolute top-0 left-0 w-full h-[400px] bg-gradient-to-r from-blue-200 to-blue-400 dark:from-blue-900 dark:to-blue-700 opacity-40 blur-[120px]"
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
 
       {/* HERO */}
-      <div className="text-center max-w-3xl mx-auto relative px-6 z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-6xl md:text-7xl font-extrabold text-blue-800 tracking-tight"
-        >
-          Marco Tech
-        </motion.h1>
+      <Hero />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-4 text-xl md:text-2xl font-medium text-gray-700"
-        >
-          Hyderabad’s Most Trusted Device Repair Experts
-        </motion.p>
-
-        {/* CTA */}
-        <div className="flex justify-center gap-4 mt-10 flex-wrap">
-          <motion.a
-            whileHover={{ scale: 1.08 }}
-            className="bg-gradient-to-r from-green-600 to-green-500 text-white px-7 py-3 rounded-xl shadow-lg text-lg font-semibold"
-            href={`https://wa.me/${whatsappNumber}`}
-            target="_blank"
-          >
-            <MessageCircle className="inline w-5 mr-1" /> WhatsApp
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.08 }}
-            className="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-7 py-3 rounded-xl shadow-lg text-lg font-semibold"
-            href={`tel:+${whatsappNumber}`}
-          >
-            <PhoneCall className="inline w-5 mr-1" /> Call Now
-          </motion.a>
-        </div>
-      </div>
-
-      {/* Divider Wave */}
-      <svg className="w-full mt-28" viewBox="0 0 1440 80">
-        <path fill="#ffffff" fillOpacity="1"
-          d="M0,64L120,53.3C240,43,480,21,720,21.3C960,21,1200,43,1320,53.3L1440,64V0H0Z" />
-      </svg>
-
-      {/* Highlights */}
-      <div className="bg-white pb-20 pt-8">
-        <h2 className="text-3xl font-bold text-blue-700 text-center">Why Choose Us?</h2>
+      {/* WHY CHOOSE US */}
+      <div className="py-20">
+        <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 text-center">
+          Why Choose Us?
+        </h2>
 
         <div className="grid sm:grid-cols-3 gap-8 max-w-6xl mx-auto mt-10 px-6">
           {[
-            { icon: <Cpu className="w-12 h-12 text-blue-700" />, title: "Chip-Level Repair" },
-            { icon: <Clock className="w-12 h-12 text-blue-700" />, title: "Same Day Service" },
-            { icon: <IndianRupee className="w-12 h-12 text-blue-700" />, title: "Affordable Cost" },
-          ].map((feature, i) => (
+            { icon: <Cpu />, title: "Chip-Level Repair", desc: "Expert motherboard IC solutions" },
+            { icon: <Clock />, title: "Same Day Service", desc: "Quick delivery for urgent repairs" },
+            { icon: <IndianRupee />, title: "Affordable Pricing", desc: "Best cost with genuine parts" },
+          ].map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -6, scale: 1.05 }}
-              className="bg-gradient-to-br from-blue-50 to-white shadow-lg border 
-              rounded-2xl p-8 backdrop-blur-xl hover:shadow-blue-200 transition"
+              className="bg-white dark:bg-[#111a33] shadow-lg border dark:border-blue-900/30 rounded-2xl p-8 text-center"
             >
-              <div className="mb-4 flex justify-center">{feature.icon}</div>
-              <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
+              <div className="mb-4 flex justify-center text-blue-700 dark:text-blue-300">{item.icon}</div>
+              <h3 className="font-bold text-lg">{item.title}</h3>
+              <p className="text-sm mt-2 opacity-80">{item.desc}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Testimonials */}
-      <div className="max-w-6xl mx-auto mt-24 px-6">
-        <h2 className="text-3xl font-bold text-blue-700 text-center">
+    
+      {/* TESTIMONIALS */}
+      <div className="max-w-6xl mx-auto mt-20 px-6">
+        <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 text-center">
           Loved by Customers ❤️
         </h2>
 
@@ -130,49 +75,43 @@ const Home = () => {
             <motion.div
               key={i}
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-6 rounded-2xl shadow-md border hover:shadow-lg transition"
+              className="bg-white dark:bg-[#111a33] p-6 rounded-2xl shadow-md border dark:border-blue-800"
             >
-              <div className="flex justify-center text-yellow-400">
+              <div className="flex justify-center gap-1 text-yellow-400">
                 {[...Array(r.rating)].map((_, j) => (
                   <Star key={j} fill="gold" stroke="none" className="w-5" />
                 ))}
               </div>
-              <p className="text-gray-700 text-sm mt-3">“{r.review}”</p>
-              <p className="text-blue-700 font-semibold mt-3">— {r.name}</p>
+
+              <p className="text-xs text-green-700 dark:text-green-400 text-center mt-2">
+                <CheckCircle className="inline w-4" /> Verified Customer
+              </p>
+
+              <p className="text-sm text-center opacity-80 mt-3">
+                "{r.review}"
+              </p>
+
+              <p className="text-blue-700 dark:text-blue-300 text-center font-semibold mt-3">
+                — {r.name}
+              </p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Map */}
-      <div className="max-w-6xl mx-auto mt-28 px-6">
-        <h2 className="text-3xl font-bold text-blue-700 text-center">Our Location</h2>
-
-        <div className="rounded-2xl overflow-hidden shadow-xl border mt-8">
-          <iframe
-            className="w-full h-[300px] sm:h-[360px]"
-            allowFullScreen
-            loading="lazy"
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4129.677880425848!2d78.31378599061105!3d17.388050779159997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1765079205308!5m2!1sen!2sin"
-          ></iframe>
-        </div>
-      </div>
-
-      {/* Footer CTA */}
-      <div className="text-center mt-20">
-        <Link
-          to="/services"
-          className="bg-gradient-to-r from-blue-700 to-blue-500 text-white px-12 py-3 rounded-xl text-lg font-semibold shadow-lg hover:scale-105 transition"
+      {/* CTA */}
+      <div className="text-center mt-24">
+        <Link to="/services"
+          className="bg-blue-700 dark:bg-blue-500 text-white px-12 py-3 rounded-xl text-lg font-semibold shadow-lg hover:scale-105 transition"
         >
           Explore Services →
         </Link>
       </div>
 
       {/* FOOTER */}
-      <footer className="text-center text-gray-600 py-12 mt-24 border-t">
+      <footer className="text-center text-gray-600 dark:text-gray-400 py-12 mt-24 border-t dark:border-blue-900/40">
         © {new Date().getFullYear()} Marco Tech. All Rights Reserved.
       </footer>
-
     </section>
   );
 };
