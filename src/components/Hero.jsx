@@ -4,7 +4,7 @@ import {
   CheckCircle
 } from "lucide-react";
 import { motion } from "framer-motion";
-
+import TextType from "./TextType";
 const Hero = () => {
   const whatsappNumber = "917447709973";
 
@@ -41,7 +41,13 @@ const Hero = () => {
         transition={{ delay: 0.3, duration: 0.8 }}
         className="mt-4 text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-300"
       >
-        Hyderabad’s Most Trusted Device Repair Experts
+        <TextType
+          text={["Hyderabad’s Most Trusted Device Repair Experts"]}
+          typingSpeed={75}
+          pauseDuration={1500}
+          showCursor={true}
+          cursorCharacter="|"
+        />
       </motion.p>
 
       {/* Hero Badges */}
@@ -52,7 +58,7 @@ const Hero = () => {
         className="flex flex-wrap justify-center gap-3 mt-6 font-semibold
         text-blue-900 dark:text-blue-300"
       >
-        {["Laptop Repair", "MacBook Service", "Data Recovery" , "Desktop Repair" , "Printer Service"].map((item, i) => (
+        {["Laptop Repair", "MacBook Service", "Data Recovery", "Desktop Repair", "Printer Service"].map((item, i) => (
           <span key={i} className="bg-blue-100 dark:bg-blue-900/40 px-4 py-1 rounded-full text-sm shadow">
             <CheckCircle className="inline w-4 mr-1 text-blue-600 dark:text-blue-400" />
             {item}

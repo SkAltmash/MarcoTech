@@ -13,6 +13,7 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import CompanyBrands from "../components/CompanyBrands";
+import WhyMarco from "@/components/WhyMarco";
 
 const whatsappNumber = "917447709973";
 
@@ -63,7 +64,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0a1124] dark:via-[#0e1630] dark:to-[#0b1226] text-gray-900 dark:text-gray-200 min-h-screen pt-32 px-6 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0a1124] dark:via-[#0e1630] dark:to-[#0b1226] text-gray-900 dark:text-gray-200 min-h-screen pt-32 px-6 overflow-hidden pb-10">
 
       {/* Floating BG Blur Effects */}
       <motion.div className="absolute -top-20 -right-20 w-[350px] h-[350px] bg-blue-300 dark:bg-blue-700 rounded-full blur-3xl opacity-20"
@@ -136,52 +137,16 @@ const Services = () => {
       <CompanyBrands />
 
       {/* WHY CHOOSE US */}
-      <div className="mt-28 max-w-4xl mx-auto text-center relative z-10">
-        <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300">
-          Why Choose Marco Tech?
-        </h2>
-
-        <div className="grid sm:grid-cols-2 gap-5 mt-8">
-          {[
-            "Same-Day Fix for Most Issues",
-            "Affordable & Transparent Pricing",
-            "Warranty on Repair Work",
-            "Trusted Chip-Level Technician",
-          ].map((point, i) => (
-            <motion.div key={i}
-              whileHover={{ scale: 1.06 }}
-              className="bg-blue-50 dark:bg-blue-900/40 py-4 px-6 rounded-xl flex items-center gap-3 shadow dark:shadow-none border dark:border-blue-800/60 transition"
-            >
-              <CheckCircle2 className="text-blue-600 dark:text-blue-400 w-6" />
-              <span className="text-gray-700 dark:text-gray-200 text-sm">{point}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+     <WhyMarco showlink ={false} />
 
       {/* LOCATION */}
-      <div className="text-center mt-24 relative z-10">
-        <p className="flex justify-center gap-2 text-lg font-medium">
-          <MapPin className="w-6 h-6 text-blue-700 dark:text-blue-400" />
-          Hyderabad, India
-        </p>
-      </div>
+    
 
-      {/* CTA */}
-      <div className="text-center mt-16 relative z-20">
-        <a href={`https://wa.me/${whatsappNumber}`}
-          className="bg-green-600 dark:bg-green-500 text-white px-10 py-3 rounded-xl text-lg font-semibold shadow-lg hover:scale-105 transition">
-          <MessageCircle className="inline-block w-6 mb-1 mr-1" />
-          Chat on WhatsApp
-        </a>
-      </div>
+  
 
      
 
-      {/* FOOTER */}
-      <footer className="text-center text-gray-600 dark:text-gray-400 py-12 mt-24 border-t border-gray-300 dark:border-blue-900/40 relative z-10">
-        © {new Date().getFullYear()} Marco Tech. All Rights Reserved.
-      </footer>
+    
     </section>
   );
 };

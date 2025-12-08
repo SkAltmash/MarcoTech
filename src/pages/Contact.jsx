@@ -4,169 +4,242 @@ import {
   PhoneCall,
   MapPin,
   MessageCircle,
-  Clock,
-  ChevronRight
+  SendHorizonal,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import Footer from "../components/Footer";
 
 const whatsappNumber = "917447709973";
 
-const faqs = [
-  {
-    q: "Do you provide pickup & drop?",
-    a: "Yes! We offer pickup and delivery service within Hyderabad city limits."
-  },
-  {
-    q: "Is diagnosis free?",
-    a: "Inspection is FREE if you go ahead with repair. Otherwise just ₹99."
-  },
-  {
-    q: "Do you use original parts?",
-    a: "We always use original or high-quality OEM compatible parts with warranty."
-  },
-  {
-    q: "Do you give repair warranty?",
-    a: "Yes — part & service warranty depends on issue type."
-  }
-];
-
 const Contact = () => {
-  const [openFAQ, setOpenFAQ] = useState(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleFAQToggle = (i) => {
-    setOpenFAQ(openFAQ === i ? null : i);
-  };
-
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-100 
-    dark:from-[#0a1124] dark:via-[#0e1630] dark:to-[#0b1226] min-h-screen py-32 px-6 text-gray-900 dark:text-gray-200">
-
-      {/* Background Glow */}
-      <motion.div
-        className="absolute -top-28 right-0 w-[350px] h-[350px] 
-        bg-blue-400 dark:bg-blue-900 rounded-full blur-[160px] opacity-40"
-        animate={{ scale: [1, 1.1, 1] }}
-        transition={{ duration: 7, repeat: Infinity }}
-      />
-
-      <div className="max-w-6xl mx-auto relative z-10">
-
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800 dark:text-blue-300">
-            Contact Us
-          </h1>
-          <p className="text-lg mt-3 text-gray-700 dark:text-gray-300">
-            Quick support for any hardware issue — reach us instantly!
-          </p>
-        </div>
-
-        {/* Contact Info + WhatsApp Only */}
-        <div className="max-w-4xl mx-auto bg-white/70 dark:bg-white/10 backdrop-blur-xl 
-        rounded-2xl shadow-xl border dark:border-blue-900/40 p-8">
-
-          <h2 className="text-xl font-bold text-blue-700 dark:text-blue-300 mb-6 text-center">
-            Get in Touch
-          </h2>
-
-          <div className="space-y-5 text-center">
-            <p className="flex justify-center items-center gap-3 text-gray-800 dark:text-gray-300">
-              <PhoneCall className="text-blue-700 dark:text-blue-300" /> +91 {whatsappNumber}
-            </p>
-            <p className="flex justify-center items-center gap-3 text-gray-800 dark:text-gray-300">
-              <Mail className="text-blue-700 dark:text-blue-300" /> support@marcotech.in
-            </p>
-            <p className="flex justify-center items-center gap-3 text-gray-800 dark:text-gray-300">
-              <MapPin className="text-blue-700 dark:text-blue-300" />
-              Shastripuram, Hyderabad – Telangana
-            </p>
-            <p className="flex justify-center items-center gap-3 text-gray-800 dark:text-gray-300">
-              <Clock className="text-blue-700 dark:text-blue-300" />
-              Mon – Sat: 10:00 AM – 8:00 PM
-            </p>
-          </div>
-
-          {/* WhatsApp CTA */}
-          <a
-            href={`https://wa.me/${whatsappNumber}`}
-            className="flex items-center justify-center gap-2 mt-8 
-            bg-green-600 dark:bg-green-500 text-white px-10 py-3 
-            rounded-xl text-lg font-semibold shadow-lg hover:scale-105 transition"
-          >
-            <MessageCircle className="w-5 h-5" /> Chat on WhatsApp
-          </a>
-        </div>
-
-        {/* FAQ */}
-        <div className="mt-24">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-300 text-center">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="mt-8 space-y-4 max-w-3xl mx-auto">
-            {faqs.map((item, i) => (
-              <motion.div
-                key={i}
-                className="bg-white/80 dark:bg-white/10 backdrop-blur-xl 
-                p-4 rounded-xl shadow border dark:border-blue-900/40 cursor-pointer"
-                onClick={() => handleFAQToggle(i)}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-gray-900 dark:text-gray-100">
-                    {item.q}
-                  </span>
-                  <ChevronRight
-                    className={`w-5 text-blue-600 dark:text-blue-400 transition-transform 
-                    ${openFAQ === i ? "rotate-90" : ""}`}
-                  />
-                </div>
-
-                {openFAQ === i && (
-                  <motion.p
-                    className="mt-3 text-gray-600 dark:text-gray-300 text-sm leading-6"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    {item.a}
-                  </motion.p>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Map */}
-        <div className="mt-24 max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-300 mb-6 text-center">
-            Find Us Here
-          </h2>
-          <div className="rounded-2xl overflow-hidden shadow-xl border dark:border-blue-900/40">
-            <iframe
-              className="w-full h-[320px] sm:h-[380px]"
-              loading="lazy"
-              allowFullScreen
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4129.677880425848!2d78.31378599061105!3d17.388050779159997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sin!4v1765079205308!5m2!1sen!2sin"
-            ></iframe>
-          </div>
-        </div>
-
+    <section
+      className="
+      min-h-screen pt-40 pb-24 px-6
+      bg-gray-100 text-gray-800
+      dark:bg-[#070d19] dark:text-gray-200
+      transition-colors duration-500
+    "
+    >
+      {/* Page Title */}
+      <div className="text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-extrabold 
+          text-blue-700 dark:text-white">
+          Get In{" "}
+          <span className="text-blue-600">Touch</span>
+        </h1>
+        <p className="mt-3 text-gray-600 dark:text-gray-400">
+          Reach out anytime — We’re here to help you fix your devices fast!
+        </p>
       </div>
 
-      {/* Footer */}
-      <footer className="text-center text-gray-600 dark:text-gray-500 
-      py-12 mt-24 border-t dark:border-blue-900/40">
-        © {new Date().getFullYear()} Marco Tech. All Rights Reserved.
-      </footer>
-    </section>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+        {/* Left Card – Contact Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="
+          bg-white border border-blue-200/40 text-gray-800
+          dark:bg-black/30 dark:border-cyan-400/20 dark:text-gray-200
+          backdrop-blur-xl p-8 rounded-2xl shadow-xl
+          transition-colors duration-500
+        "
+        >
+          <h2 className="text-xl font-bold text-blue-700  mb-4">
+            Let’s Connect
+          </h2>
+
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+            Have a device that needs fixing? Want a repair quote?
+            Contact us and we will assist you right away.
+          </p>
+
+          {/* Contact Items */}
+          <div className="flex flex-col gap-4">
+
+            {/* 📧 Email */}
+            <div
+              onClick={() =>
+                window.location.href =
+                "mailto:s38888732@gmail.com?subject=Device Repair Inquiry"
+              }
+              className="
+    group cursor-pointer p-4 rounded-lg flex items-center gap-4
+    border border-blue-400/30 hover:bg-blue-100/50
+    dark:border-cyan-400/20 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/50
+    transition-all duration-300
+    "
+            >
+              <Mail
+                className="
+      w-6 text-blue-600
+      dark:text-cyan-400
+      group-hover:scale-110 transition
+      "
+              />
+              <div>
+                <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                  Email Us
+                </p>
+                <p className="text-blue-600 dark:text-cyan-300 text-sm">
+                  s38888732@gmail.com
+                </p>
+              </div>
+            </div>
+
+            {/* 📞 Call */}
+            <div
+              onClick={() => window.location.href = `tel:+91${whatsappNumber}`}
+              className="
+    group cursor-pointer p-4 rounded-lg flex items-center gap-4
+    border border-blue-400/30 hover:bg-blue-100/50
+    dark:border-cyan-400/20 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/50
+    transition-all duration-300
+    "
+            >
+              <PhoneCall
+                className="
+      w-6 text-blue-600
+      dark:text-cyan-400
+      group-hover:scale-110 transition
+      "
+              />
+              <div>
+                <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                  Call Anytime
+                </p>
+                <p className="text-blue-600 dark:text-cyan-300 text-sm">
+                  +91 {whatsappNumber}
+                </p>
+              </div>
+            </div>
+
+            {/* 📍 Directions */}
+            <div
+              onClick={() =>
+                window.open(
+                  "https://www.google.com/maps?q=Shastripuram+Hyderabad",
+                  "_blank"
+                )
+              }
+              className="
+    group cursor-pointer p-4 rounded-lg flex items-center gap-4
+    border border-blue-400/30 hover:bg-blue-100/50
+    dark:border-cyan-400/20 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/50
+    transition-all duration-300
+    "
+            >
+              <MapPin
+                className="
+      w-6 text-blue-600
+      dark:text-cyan-400
+      group-hover:scale-110 transition
+      "
+              />
+              <div>
+                <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
+                  Visit Store
+                </p>
+                <p className="text-blue-600 dark:text-cyan-300 text-sm">
+                  Shastripuram, Hyderabad
+                </p>
+              </div>
+              
+            </div>
+             <a
+            href={`https://wa.me/${whatsappNumber}`}
+            className="
+            w-full mt-6 py-3 rounded-lg text-center font-semibold
+            bg-green-600 text-white hover:bg-green-500
+           
+            transition shadow-lg
+            "
+          >
+            <MessageCircle className="w-5 inline-block mr-1" />
+            Chat on WhatsApp
+          </a>
+          </div>
+
+
+          {/* WhatsApp CTA */}
+         
+        </motion.div>
+
+        {/* Right Card – Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="
+          bg-white border border-blue-200/40 text-gray-800
+          dark:bg-black/30 dark:border-cyan-400/20 dark:text-gray-200
+          backdrop-blur-xl p-8 rounded-2xl shadow-xl
+          transition-colors duration-500
+        "
+        >
+          <h2 className="text-xl font-bold text-blue-700  mb-4">
+            Send a Message
+          </h2>
+
+          <form className="space-y-4">
+            {["Your Name", "Your Email", "What's this about?"].map(
+              (placeholder, i) => (
+                <input
+                  key={i}
+                  type="text"
+                  placeholder={placeholder}
+                  className="
+                  w-full text-sm rounded-lg p-3 outline-none
+                  border border-blue-300/40 bg-white text-gray-800
+                  focus:border-blue-500
+                  dark:border-cyan-400/20 dark:bg-transparent dark:text-gray-200
+                  dark:focus:border-cyan-400
+                  transition
+                  "
+                />
+              )
+            )}
+
+            <textarea
+              placeholder="Tell us your issue or ask a question..."
+              className="
+              w-full h-28 resize-none text-sm rounded-lg p-3 outline-none
+              border border-blue-300/40 bg-white text-gray-800
+              focus:border-blue-500
+              dark:border-cyan-400/20 dark:bg-transparent dark:text-gray-200
+              dark:focus:border-cyan-400
+              transition
+              "
+            />
+
+            <button
+              type="button"
+              onClick={() =>
+                window.open(
+                  `https://wa.me/${whatsappNumber}?text=Hi! I need help with a repair.`,
+                  "_blank"
+                )
+              }
+              className="
+              w-full py-3 rounded-lg text-sm font-bold
+              bg-blue-600 text-white hover:bg-blue-500
+        
+              transition shadow-lg flex items-center justify-center gap-2
+              "
+            >
+              <SendHorizonal className="w-5" />
+              Send Message
+            </button>
+          </form>
+        </motion.div>
+      </div>
+
+      
+          </section>
   );
 };
 
