@@ -45,7 +45,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="
           bg-white border border-blue-200/40 text-gray-800
-          dark:bg-black/30 dark:border-cyan-400/20 dark:text-gray-200
+          dark:bg-black/30  dark:text-gray-200
           backdrop-blur-xl p-8 rounded-2xl shadow-xl
           transition-colors duration-500
         "
@@ -66,19 +66,18 @@ const Contact = () => {
             <div
               onClick={() =>
                 window.location.href =
-                "mailto:s38888732@gmail.com?subject=Device Repair Inquiry"
+                "mailto:mr.ibrahim5612@gmail.com?subject=Device Repair Inquiry"
               }
               className="
     group cursor-pointer p-4 rounded-lg flex items-center gap-4
     border border-blue-400/30 hover:bg-blue-100/50
-    dark:border-cyan-400/20 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/50
+ 
     transition-all duration-300
     "
             >
               <Mail
                 className="
       w-6 text-blue-600
-      dark:text-cyan-400
       group-hover:scale-110 transition
       "
               />
@@ -86,9 +85,9 @@ const Contact = () => {
                 <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
                   Email Us
                 </p>
-                <p className="text-blue-600 dark:text-cyan-300 text-sm">
-                  s38888732@gmail.com
-                </p>
+                <p className="text-blue-600  text-sm">
+           mr.ibrahim5612@gmail.com              
+             </p>
               </div>
             </div>
 
@@ -98,14 +97,13 @@ const Contact = () => {
               className="
     group cursor-pointer p-4 rounded-lg flex items-center gap-4
     border border-blue-400/30 hover:bg-blue-100/50
-    dark:border-cyan-400/20 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/50
+  
     transition-all duration-300
     "
             >
               <PhoneCall
                 className="
       w-6 text-blue-600
-      dark:text-cyan-400
       group-hover:scale-110 transition
       "
               />
@@ -113,7 +111,7 @@ const Contact = () => {
                 <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
                   Call Anytime
                 </p>
-                <p className="text-blue-600 dark:text-cyan-300 text-sm">
+                <p className="text-blue-600  text-sm">
                   +91 {whatsappNumber}
                 </p>
               </div>
@@ -130,14 +128,12 @@ const Contact = () => {
               className="
     group cursor-pointer p-4 rounded-lg flex items-center gap-4
     border border-blue-400/30 hover:bg-blue-100/50
-    dark:border-cyan-400/20 dark:hover:bg-cyan-500/10 dark:hover:border-cyan-400/50
     transition-all duration-300
     "
             >
               <MapPin
                 className="
       w-6 text-blue-600
-      dark:text-cyan-400
       group-hover:scale-110 transition
       "
               />
@@ -145,7 +141,7 @@ const Contact = () => {
                 <p className="font-semibold text-sm text-gray-800 dark:text-gray-200">
                   Visit Store
                 </p>
-                <p className="text-blue-600 dark:text-cyan-300 text-sm">
+                <p className="text-blue-600 text-sm">
                   Shastripuram, Hyderabad
                 </p>
               </div>
@@ -176,7 +172,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           className="
           bg-white border border-blue-200/40 text-gray-800
-          dark:bg-black/30 dark:border-cyan-400/20 dark:text-gray-200
+          dark:bg-black/30 0 dark:text-gray-200
           backdrop-blur-xl p-8 rounded-2xl shadow-xl
           transition-colors duration-500
         "
@@ -196,8 +192,8 @@ const Contact = () => {
                   w-full text-sm rounded-lg p-3 outline-none
                   border border-blue-300/40 bg-white text-gray-800
                   focus:border-blue-500
-                  dark:border-cyan-400/20 dark:bg-transparent dark:text-gray-200
-                  dark:focus:border-cyan-400
+              dark:bg-transparent dark:text-gray-200
+                 
                   transition
                   "
                 />
@@ -210,8 +206,7 @@ const Contact = () => {
               w-full h-28 resize-none text-sm rounded-lg p-3 outline-none
               border border-blue-300/40 bg-white text-gray-800
               focus:border-blue-500
-              dark:border-cyan-400/20 dark:bg-transparent dark:text-gray-200
-              dark:focus:border-cyan-400
+             0 dark:bg-transparent dark:text-gray-200
               transition
               "
             />

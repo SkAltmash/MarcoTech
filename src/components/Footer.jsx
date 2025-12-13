@@ -77,7 +77,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 text-blue-600 dark:text-blue-400" />
-             s38888732@gmail.com           
+              mr.ibrahim5612@gmail.com           
               </li>
             <li className="flex items-center gap-2">
               <MapPin className="w-4 text-blue-600 dark:text-blue-400" />
@@ -121,7 +121,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Marco Tech — All Rights Reserved.
         </p>
 
-        <p className="text-xl mt-2 text-gray-600 dark:text-gray-400">
+        <p className="text-m mt-2 text-gray-600 dark:text-gray-400">
           Designed & Developed by{" "}
           <a
             href="https://altamashdev.netlify.app/"

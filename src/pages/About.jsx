@@ -47,7 +47,7 @@ const About = () => {
     },
     {
       title: "12th",
-      org: "mam Wali Ullah JR College .Sonor TQ Murtizapur,dist Akola",
+      org: "Imam wali Ullah JR College .Sonor TQ Murtizapur,dist Akola",
       period: "2020 - 2022"
     }
     ,
@@ -141,12 +141,12 @@ const About = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-10">
             <TiltedCard
-              imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+              imageSrc="/ibrahim.jpeg"
               altText="Sheik Ibrahim"
               captionText="Sheik Ibrahim"
-              containerHeight="300px"
+              containerHeight="400px"
               containerWidth="300px"
-              imageHeight="300px"
+              imageHeight="400px"
               imageWidth="300px"
               rotateAmplitude={12}
               scaleOnHover={1.1}
