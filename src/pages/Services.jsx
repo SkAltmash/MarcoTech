@@ -8,10 +8,13 @@ import {
   PhoneCall,
   MessageCircle,
   MapPin,
-  CheckCircle2
+  CheckCircle2,
+  ShoppingBag, 
+  ArrowRight    
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
 import CompanyBrands from "../components/CompanyBrands";
 import WhyMarco from "@/components/WhyMarco";
 
@@ -25,6 +28,14 @@ const Services = () => {
   }, []);
 
   const serviceList = [
+    {
+      icon: <ShoppingBag className="w-7 h-7 text-orange-600 dark:text-orange-400" />,
+      title: "Refurbished Laptops",
+      desc: "Premium certified pre-owned laptops with testing & warranty.",
+      img: "/services/refurbished.png", 
+      link: "/refurbished-laptops", 
+      featured: true
+    },
     {
       icon: <Laptop2 className="w-7 h-7 text-blue-600 dark:text-blue-400" />,
       title: "Laptop Repair",
@@ -71,20 +82,16 @@ const Services = () => {
         animate={{ scale: [1, 1.25, 1] }}
         transition={{ duration: 5, repeat: Infinity }}
       />
-      <motion.div className="absolute bottom-0 -left-40 w-[420px] h-[420px] bg-blue-200 dark:bg-blue-900 rounded-full blur-3xl opacity-25"
-        animate={{ scale: [1.25, 1, 1.25] }}
-        transition={{ duration: 5, repeat: Infinity }}
-      />
 
       {/* HEADER */}
       <div className="text-center max-w-2xl mx-auto relative z-10">
         <h1 className="text-5xl font-extrabold text-blue-700 dark:text-blue-300">Our Services</h1>
         <p className="mt-4 text-gray-700 dark:text-gray-300 text-lg">
-          Professional repair solutions with expert technicians.
+          From expert repairs to premium refurbished devices.
         </p>
       </div>
 
-      {/* SERVICES GRID : SHOW 3 OR 6 */}
+      {/* SERVICES GRID */}
       <div className="mt-16 max-w-6xl mx-auto relative z-10">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceList
@@ -94,12 +101,19 @@ const Services = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white/70 dark:bg-[#101a34] backdrop-blur-xl shadow-lg rounded-2xl 
-                border border-blue-200/50 dark:border-blue-900/40
-                hover:shadow-blue-300 dark:hover:shadow-blue-700 transition-all"
+                whileHover={{ scale: 1.02 }}
+                className={`bg-white/70 dark:bg-[#101a34] backdrop-blur-xl shadow-lg rounded-2xl 
+                border transition-all flex flex-col
+                ${service.featured 
+                  ? "border-orange-200 dark:border-orange-900/50 ring-1 ring-orange-500/20" 
+                  : "border-blue-200/50 dark:border-blue-900/40"}`}
               >
-                <div className="overflow-hidden rounded-t-2xl">
+                <div className="overflow-hidden rounded-t-2xl relative">
+                  {service.featured && (
+                    <span className="absolute top-3 right-3 bg-orange-600 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-20">
+                      Best Value
+                    </span>
+                  )}
                   <motion.img
                     src={service.img}
                     alt={service.title}
@@ -110,12 +124,24 @@ const Services = () => {
                   />
                 </div>
 
-                <div className="p-5">
+                <div className="p-5 flex-grow flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
                     {service.icon}
                     <h3 className="text-lg font-bold">{service.title}</h3>
                   </div>
-                  <p className="text-sm opacity-90">{service.desc}</p>
+                  <p className="text-sm opacity-90 mb-4">{service.desc}</p>
+                  
+                  {/* Link specific to Refurbished or any item with a 'link' */}
+                  {service.link && (
+                    <div className="mt-auto">
+                      <a 
+                        href={service.link} 
+                        className="inline-flex items-center gap-1 text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline"
+                      >
+                        Browse Catalog <ArrowRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -128,24 +154,13 @@ const Services = () => {
             className="px-8 py-3 rounded-xl font-semibold shadow-md
             bg-blue-700 text-white dark:bg-blue-500 hover:scale-105 transition"
           >
-            {showMore ? "Show Less" : "Show More"}
+            {showMore ? "View All Services" : "Show More Services"}
           </button>
         </div>
       </div>
 
-      {/* BRAND LOGO LOOP */}
       <CompanyBrands />
-
-      {/* WHY CHOOSE US */}
-     <WhyMarco showlink ={false} />
-
-      {/* LOCATION */}
-    
-
-  
-
-     
-
+      <WhyMarco showlink={false} />
     
     </section>
   );

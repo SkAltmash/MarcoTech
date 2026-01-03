@@ -6,7 +6,7 @@ import Navbar from "./components/NavBar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
-
+import RefurbishedLaptops from "./pages/RefurbishedLaptops";
 const App = () => {
   const location = useLocation();
   const hideNavFooter = location.pathname === "/";
@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/refurbished-laptops" element={<RefurbishedLaptops />} />
       </Routes>
 
       {!hideNavFooter && <Footer />}

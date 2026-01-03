@@ -141,7 +141,7 @@ const About = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-10">
             <TiltedCard
-              imageSrc="/ibrahim.jpeg"
+              imageSrc="/ibrahim.png"
               altText="Sheik Ibrahim"
               captionText="Sheik Ibrahim"
               containerHeight="400px"
